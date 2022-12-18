@@ -5,7 +5,7 @@ from usuario.models import Usuario
 def home(request):
     if request.session.get('usuario'):
         usuario = Usuario.objects.get(id=request.session['usuario'])
-        #return HttpResponse(f"olá, {usuario}")
+        return HttpResponse(f"oi, {usuario}")
         return render(request,'index.html')
     else:
         return redirect('/auth/login/?status=2')
